@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="turn.min.js"></script>
+
+
+<style type="text/css">
+body{
+	background:#ccc;
+background-image:url(pages/newbg1.jpg);
+background-repeat:no-repeat;
+}
+#magazine{
+	width:690px;
+	height:652px;
+	
+	
+}
+#magazine .turn-page{
+	background-color:#ccc;
+	background-size:100% 100%;
+	
+}
+</style>
+</head>
+<body>
+
+<div id="magazine">
+	<div style="background-image:url(pages/p01.jpg);"></div>
+	<div style="background-image:url(pages/p02.jpg);"></div>
+	<div style="background-image:url(pages/p03.jpg);"></div>
+	<div style="background-image:url(pages/p04.jpg);"></div>
+	<div style="background-image:url(pages/p05.jpg);"></div>
+	<div style="background-image:url(pages/p06.jpg);"></div>
+	<div style="background-image:url(pages/p07.jpg);"></div>
+	<div style="background-image:url(pages/p08.jpg);"></div>
+	<div style="background-image:url(pages/p09.jpg);"></div>
+	<div style="background-image:url(pages/p10.jpg);"></div>
+</div>
+
+
+<script type="text/javascript">
+
+	$(window).ready(function() {
+		$('#magazine').turn({
+							display: 'double',
+							acceleration: true,
+							gradients: !$.isTouch,
+							elevation:50,
+							when: {
+								turned: function(e, page) {
+									/*console.log('Current view: ', $(this).turn('view'));*/
+								}
+							}
+						});
+	});
+	
+	
+	$(window).bind('keydown', function(e){
+		
+		if (e.keyCode==37)
+			$('#magazine').turn('previous');
+		else if (e.keyCode==39)
+			$('#magazine').turn('next');
+			
+	});
+
+</script>
+ <div style="position:fixed; width:98%; height:10px; background-color:#000000; padding:5px; bottom:0px; text-align:center;color:#F0F8FF ">
+          Gowtham Reddy &#169; :2013
+        </div>
+</body>
+</html>
